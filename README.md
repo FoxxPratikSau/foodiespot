@@ -1,6 +1,6 @@
 # Restaurant Booking AI Agent
 
-This repository contains an AI-powered restaurant booking assistant that helps users find restaurants, get recommendations, and make reservations. It demonstrates different implementation approaches for building AI agents with tool-use capabilities.
+This repository contains an AI-powered restaurant booking assistant that helps users find restaurants, get recommendations, and make reservations. It demonstrates a structured approach to building an AI agent with tool-use capabilities.
 
 ## Features
 
@@ -11,15 +11,11 @@ This repository contains an AI-powered restaurant booking assistant that helps u
 - View reservation details
 - Progressive information gathering for a better user experience
 
-## Implementation Approaches
+## Implementation
 
-This repository includes three different implementations of the restaurant booking agent:
+The project includes the `intent_restaurant_booking.py` script, which serves as the main entry point for the restaurant booking agent. This implementation utilizes a structured prompting pattern to guide the AI in making appropriate function calls.
 
-1. **Original ToolAgent**: A custom implementation using a structured prompting pattern that guides the LLM to call appropriate functions
-2. **DSPy Agent**: A more modular implementation using DSPy's ChainOfThought pattern for better performance
-3. **DSPy ReAct Agent**: An advanced implementation using DSPy's ReAct pattern, which combines reasoning and acting in an iterative cycle
-
-## Setup
+### Setup
 
 1. Clone this repository:
    ```bash
@@ -48,32 +44,10 @@ This repository includes three different implementations of the restaurant booki
 
 ## Running the Agent
 
-You can run any of the three agent implementations directly:
+To run the restaurant booking agent, execute the following command:
 
 ```bash
-# Run the original ToolAgent
 python intent_restaurant_booking.py
-
-# Run the DSPy Agent
-python dspy_restaurant_agent.py
-
-# Run the DSPy ReAct Agent
-python dspy_react_restaurant_agent.py
-```
-
-Or use the agent runner to try all implementations:
-
-```bash
-# Interactive selection menu
-python restaurant_agent_runner.py
-
-# Run a specific agent
-python restaurant_agent_runner.py --agent original
-python restaurant_agent_runner.py --agent dspy
-python restaurant_agent_runner.py --agent react
-
-# Run all agents in sequence
-python restaurant_agent_runner.py --agent all
 ```
 
 ## Example Queries
@@ -87,28 +61,6 @@ Here are some examples of queries you can try with the agent:
 - "What's the phone number for The French Laundry?"
 - "Check my reservation with confirmation number 12345"
 
-## Comparing Implementations
-
-The three implementations offer different advantages:
-
-1. **Original ToolAgent**:
-   - Simple architecture with minimal dependencies
-   - Direct control over prompt engineering
-   - Easy to understand and modify
-
-2. **DSPy Agent**:
-   - More modular design with separate components
-   - Better natural language understanding
-   - Enhanced information extraction for booking details
-
-3. **DSPy ReAct Agent**:
-   - Most advanced reasoning capabilities
-   - Iterative thinking process for complex queries
-   - Better handling of edge cases
-   - Superior conversation management
-
-Try them all to see which performs best for your use case!
-
 ## Technical Details
 
 ### Database Schema
@@ -121,8 +73,7 @@ The application uses a PostgreSQL database with the following tables:
 ### Tools and Modules
 
 - The `search_restaurants`, `get_restaurant_details`, and other modules provide specific functionality
-- Each agent implementation orchestrates these tools in different ways
-- DSPy provides optimized prompting patterns for better LLM performance
+- The agent orchestrates these tools to fulfill user requests
 
 ## Contributing
 
